@@ -1,15 +1,17 @@
-<<<<<<< HEAD
-# HEVC-OST
-=======
 # Introduction
-The latest video coding standard High Efficiency Video Coding (HEVC) has made a significant progress in compression efficiency than previous standard H.264/Advanced Video Coding (AVC) while it has led to a tremendous increase in encoding computations as well. Recently, a Bayesian Model based Transform Unit (TU) depth decision approach has been proved to accelerate TU depth decision efficiently. Nevertheless, numerous variance computations limits its practical applications, In this work, we propose a novel relevant feature as reference based on Bayesian model for fast TU depth decision and evaluate their performances. Experimental results demonstrate that the best performance is achieved while the depths of upper TU, left TU and co-located TU are all taken into considerations. Moreover, compared with previous research, the proposed algorithm reduces much more encoding computations while maintaining almost the same video quality and compression efficiency.
+High Efficiency Video Coding (HEVC) is the most recent video coding standard aiming to further reduce the bitrate by 50\% as compared to the state-of-the-art H.264/Advanced Video Coding under the same visual quality. In order to achieve this, a number of advanced coding techniques have been adopted in HEVC, including the quadtree structure of Coding Unit (CU), Prediction Unit (PU) and Transform Unit (TU), etc. However, these coding techniques lead to a tremendous increase in HEVC encoding computations. In order to reduce the HEVC encoding computational complexity, the optimal stopping theory is employed herein to design an efficient algorithm to optimize the decision making process when choosing the best coding parameters of CU, PU and TU. Extensive comparative experimental results are performed by the proposed algorithm and another two recent works, which demonstrate that the proposed algorithm is very efficient and better in reducing the HEVC encoding computations while keeping the video quality and compression efficiency almost intact.
 
 # Installation
+In mac/linux,
 ```
 cd build/linux
 make release
 ```
+Then the execution files will be generated in ```bin/```
 
-Then execution files will be generated in bin.
-
->>>>>>> Fast algorithm based on Optimal Stopping Theory
+# Execution
+The detailed configuration information is defined in configuration files, which are in ```cfg/```. To encode the video data, the command is like
+```
+cd bin/
+./TAppEncoderStatic -c ../cfg/encoder_randomaccess_main.cfg -c ../cfg/per-sequence/RaceHorses.cfg
+```
